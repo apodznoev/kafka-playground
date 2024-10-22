@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package de.avpod.kafka;
+
+option java_multiple_files = true;
+option java_package = "de.avpod.kafka.out.protos";
+option java_outer_classname = "MatchEventProtos";
+
+message Fighter {
+  optional string id = 1;
+  optional string name = 2;
+
+//  enum PhoneType {
+//    PHONE_TYPE_UNSPECIFIED = 0;
+//    PHONE_TYPE_MOBILE = 1;
+//    PHONE_TYPE_HOME = 2;
+//    PHONE_TYPE_WORK = 3;
+//  }
+//
+//  message PhoneNumber {
+//    optional string number = 1;
+//    optional PhoneType type = 2 [default = PHONE_TYPE_HOME];
+//  }
+//
+//  repeated PhoneNumber phones = 4;
+}
+
+message MatchEvent {
+
+  optional string id = 1;
+
+  optional EventType type = 2;
+
+  repeated Fighter fighter = 3;
+
+    enum EventType {
+      STARTED = 0;
+      FINISHED = 1;
+    }
+}
+
+message MatchFighterEvent {
+
+  optional Fighter fighter = 1;
+
+  optional EventType type = 2;
+
+
+  enum EventType {
+    JOINED_ARENA = 0;
+    LEFT_ARENA = 1;
+    LEFT_MATCH = 2;
+  }
+}

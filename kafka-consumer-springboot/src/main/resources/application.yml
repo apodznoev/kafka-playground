@@ -1,0 +1,7 @@
+spring:
+  kafka:
+    producer:
+      bootstrap-servers: "localhost:9093"
+    consumer:
+      group-id: "my-group-1"
+
